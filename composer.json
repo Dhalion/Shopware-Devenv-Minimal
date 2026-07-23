@@ -1,0 +1,84 @@
+{
+    "name": "example/shopware-devenv-template",
+    "description": "Clean Symfony-Flex based Shopware 6 development template, provisioned with devenv.",
+    "type": "project",
+    "license": "MIT",
+    "config": {
+        "optimize-autoloader": true,
+        "apcu-autoloader": true,
+        "sort-packages": false,
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/runtime": true,
+            "php-http/discovery": true
+        }
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "endpoint": [
+                "https://raw.githubusercontent.com/shopware/recipes/flex/main/index.json",
+                "flex://defaults"
+            ]
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "custom/plugins/*",
+            "options": { "symlink": true }
+        },
+        {
+            "type": "path",
+            "url": "custom/plugins/*/packages/*",
+            "options": { "symlink": true }
+        },
+        {
+            "type": "path",
+            "url": "custom/static-plugins/*",
+            "options": { "symlink": true }
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "composer-runtime-api": "^2.0",
+        "symfony/flex": "^2.4",
+
+        "shopware/core": "6.7.*",
+        "shopware/administration": "*",
+        "shopware/storefront": "*",
+        "shopware/elasticsearch": "*",
+
+        "shopware/deployment-helper": "*"
+    },
+    "require-dev": {
+        "shopware/dev-tools": "*"
+    },
+    "autoload": {
+        "psr-4": { "App\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "App\\Tests\\": "tests/" }
+    },
+    "scripts": {
+        "auto-scripts": {},
+        "pre-install-cmd": [
+            "[ ! -f vendor/autoload.php ] || $PHP_BINARY bin/console system:update:prepare"
+        ],
+        "pre-update-cmd": [
+            "[ ! -f vendor/autoload.php ] || $PHP_BINARY bin/console system:update:prepare"
+        ],
+        "post-install-cmd": [
+            "[ ! -f vendor/autoload.php ] || $PHP_BINARY bin/console system:update:finish"
+        ],
+        "post-update-cmd": [
+            "[ ! -f vendor/autoload.php ] || $PHP_BINARY bin/console system:update:finish"
+        ]
+    },
+    "scripts-descriptions": {
+        "pre-install-cmd": "Run Shopware's update:prepare before install (no-op on a fresh checkout).",
+        "post-install-cmd": "Run Shopware's update:finish after install (no-op on a fresh checkout)."
+    }
+}

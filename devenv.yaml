@@ -1,0 +1,9 @@
+allowUnfree: true
+inputs:
+    nixpkgs:
+        url: github:NixOS/nixpkgs/nixpkgs-unstable
+    froshpkgs:
+        url: github:FriendsOfShopware/nur-packages
+        inputs:
+            nixpkgs:
+                follows: "nixpkgs"

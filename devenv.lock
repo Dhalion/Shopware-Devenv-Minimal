@@ -1,0 +1,66 @@
+{
+  "nodes": {
+    "devenv": {
+      "locked": {
+        "dir": "src/modules",
+        "lastModified": 1784758116,
+        "narHash": "sha256-vcjRSkJHM5/2rLmtCZBhms/WDJpyPNXW9Gi6xeSfc/Y=",
+        "owner": "cachix",
+        "repo": "devenv",
+        "rev": "9767a1f458fbd99b487dbb600a130917d4cd2b13",
+        "type": "github"
+      },
+      "original": {
+        "dir": "src/modules",
+        "owner": "cachix",
+        "repo": "devenv",
+        "type": "github"
+      }
+    },
+    "froshpkgs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784812158,
+        "narHash": "sha256-3RdxUCH/VMmFpW2ysY7bJC6O+AjzLLWf/pvSrjGca6U=",
+        "owner": "FriendsOfShopware",
+        "repo": "nur-packages",
+        "rev": "f634466961fc614404bda75a2d6133f31c248772",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FriendsOfShopware",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1784555310,
+        "narHash": "sha256-/FCliTPgiuV1owejZFNx3Ch9irdvkOfOFl+HHZ+DrtM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "421eebfd0ec7bccd4abe826ce62d7e6e83129493",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "devenv": "devenv",
+        "froshpkgs": "froshpkgs",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
