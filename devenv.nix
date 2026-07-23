@@ -189,8 +189,12 @@ in {
   tasks = {
     "shop:composer-install" = {
       description = "Install PHP dependencies (Shopware core + bundles via Symfony Flex)";
-      exec = "composer install --no-interaction";
-      status = "test -f vendor/autoload.php";
+      exec = ''
+        composer install --no-scripts --no-interaction
+        composer symfony:recipes:install --yes --no-interaction
+        chmod 755 bin/*
+      '';
+      status = "test -f bin/console";
     };
 
     "shop:install" = {

@@ -63,22 +63,24 @@
         "psr-4": { "App\\Tests\\": "tests/" }
     },
     "scripts": {
-        "auto-scripts": {},
+        "auto-scripts": {
+            "assets:install": "symfony-cmd"
+        },
         "pre-install-cmd": [
-            "[ ! -f vendor/autoload.php ] || $PHP_BINARY bin/console system:update:prepare"
+            "[ ! -f install.lock ] || $PHP_BINARY bin/console system:update:prepare"
         ],
         "pre-update-cmd": [
-            "[ ! -f vendor/autoload.php ] || $PHP_BINARY bin/console system:update:prepare"
+            "[ ! -f install.lock ] || $PHP_BINARY bin/console system:update:prepare"
         ],
         "post-install-cmd": [
-            "[ ! -f vendor/autoload.php ] || $PHP_BINARY bin/console system:update:finish"
+            "[ ! -f install.lock ] || $PHP_BINARY bin/console system:update:finish"
         ],
         "post-update-cmd": [
-            "[ ! -f vendor/autoload.php ] || $PHP_BINARY bin/console system:update:finish"
+            "[ ! -f install.lock ] || $PHP_BINARY bin/console system:update:finish"
         ]
     },
     "scripts-descriptions": {
-        "pre-install-cmd": "Run Shopware's update:prepare before install (no-op on a fresh checkout).",
-        "post-install-cmd": "Run Shopware's update:finish after install (no-op on a fresh checkout)."
+        "pre-install-cmd": "Run Shopware's update:prepare before install/update (no-op until Shopware is actually installed).",
+        "post-install-cmd": "Run Shopware's update:finish after install/update (no-op until Shopware is actually installed)."
     }
 }
