@@ -11,6 +11,11 @@
             "symfony/flex": true,
             "symfony/runtime": true,
             "php-http/discovery": true
+        },
+        "policy": {
+            "advisories": {
+                "block": false
+            }
         }
     },
     "extra": {
@@ -42,11 +47,11 @@
         }
     ],
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "composer-runtime-api": "^2.0",
         "symfony/flex": "^2.4",
 
-        "shopware/core": "6.7.*",
+        "shopware/core": "v6.7.11.1",
         "shopware/administration": "*",
         "shopware/storefront": "*",
         "shopware/elasticsearch": "*",
